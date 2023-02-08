@@ -34,10 +34,18 @@ public class ComprobanteService {
      */
 
     public Comprobante guardar(Comprobante comprobante) throws Exception {
-        if (comprobante.getCliente() == null) ; {
+        if (comprobante.getCantidad() == null || comprobante.getCantidad() == 0) {
+            throw new Exception("Hay que poner la cantidad de productos");
+        }
+        if (comprobante.getTotal() == null || comprobante.getTotal() == 0) {
             throw new Exception("Error en el sistema");
         }
+        if (comprobante.getCliente() == null ) {
+            throw new Exception("Ingresar un cliente valido");
+        }
+                return comprobanteRepository.save(comprobante);
     }
+
 
 
     private Boolean existenProductos(Set<Linea> lineas) {

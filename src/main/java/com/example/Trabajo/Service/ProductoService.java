@@ -25,6 +25,16 @@ public class ProductoService {
   if (producto.getCantidad() == null || producto.getCantidad() == 0) {
                     throw new Exception("Debe ingresar una cantidad valida");
                 }
+  if (producto.getCodigo() == null || producto.getCodigo() == 0) {
+      throw new Exception("Error en el sistema");
+  }
+
+  if (producto.getDescripcion() == null || producto.getDescripcion().isEmpty()) {
+   throw new Exception("Ingresar una descripcion valida");
+  }
+  if (producto.getPrecio() == null || producto.getPrecio() == 0) {
+      throw new Exception("Ingresar un precio valido");
+  }
             {
                 return productoRepository.save(producto);
             }

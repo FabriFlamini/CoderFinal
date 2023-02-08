@@ -25,7 +25,7 @@ public class Linea {
     private Comprobante comprobante;
 
     @Column(name = "descripcion")
-    private Integer descripcion;
+    private String descripcion;
 
     @Column(name = "cantidad")
     private Integer cantidad;
@@ -35,30 +35,11 @@ public class Linea {
 
 
     public String getDescripcion()  {
-        ArrayList palabras = new ArrayList();
-        palabras.add("Mesa redonda");
-        palabras.add("Cepillo de dientes");
-        palabras.add("Secador");
-        palabras.add("Pala");
-        palabras.add("Monitor");
-        palabras.add("Silla");
-        palabras.add("Pelota");
-        palabras.add("Mouse");
-        palabras.add("Teclado");
-        palabras.add("Sillon");
-        palabras.add("Televisor");
-        palabras.add("Microfono");
-        palabras.add("Impresora");
-        palabras.add("Armario");
-        palabras.add("Puerta");
 
-
-        descripcion = (int) (Math.random() *14);
-
-        return " " +palabras.get(descripcion);
+        return this.descripcion;
     }
 
-    public void setDescripcion(Integer descripcion) {
+    public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 

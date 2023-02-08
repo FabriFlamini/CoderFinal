@@ -22,9 +22,16 @@ public class LineaService {
      * @throws
      */
     public Linea guardar(Linea linea) throws Exception {
-        if (linea.getComprobante() == null) ;
+        if (linea.getDescripcion() == null || linea.getDescripcion().isEmpty()) {
+            throw new Exception("Hay que poner una descripcion");
+        }
+        if (linea.getCantidad() == null || linea.getCantidad() == 0)
         {
             throw new Exception("Error en el sistema");
         }
+        if (linea.getPrecio() == null || linea.getPrecio() == 0) {
+            throw new Exception("El precio es invalido");
+        }
+        return lineaRepository.save(linea);
     }
 }
